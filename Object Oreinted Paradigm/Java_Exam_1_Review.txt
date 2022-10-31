@@ -1,0 +1,455 @@
+Exam 1 Review (Exam this Thursday)
+
+1. What is the value stored in depth after the statements are executed?
+
+	int depth;
+	
+	int x, y;
+	
+	x = (x);
+	
+	y = (y);
+	
+	depth = x + y /3 (divide y by 3, then add x + the divided total)
+	
+	
+Theory (2 questions)
+
+2. High-lvl lang are compiled, intrepeted or a combination of both. Explain how a program written in a compiled lang is executed.
+	Compiler takes code and converts it to ML(Machine language)
+	Interpreter changes it as you type it.
+3. High-lvl lang are compiled, intrepeted or a combination of both. Explain how a program written in a Java is executed.
+	Java's platform independent
+	
+4. What's JVM? How does it work?
+	Java Virtual Machine. A VM that'll take the compiler and intrepret it line by line, takes a virtual layer, and translate it line by line to make Java work.
+	
+5. Explain the 3 types of errors that may be found. Include causes and how/when errors
+
+	Compiler errors (syntax errors) 
+	
+	Runtime errors (access a file that's not in the PC, or divide by 0)
+
+	Logic error (code works fine, compiles and runs and doesn't run like you intend it to. Space in the output or putting in a wrong addition in the if statement)
+	
+6. What pseudocode? When should it be used in software dev process?
+	Simplified version of code that you can write an algorithm in. When you're planning your code.
+	
+7. What are the four different ways that the flow of control can progress through a program.
+	
+	Selection (allows you to go down one step)
+	
+	Repetition (all of your loops)
+	
+	Method Call (functions)
+	
+	Sequence (doing things in sequence)
+	
+	
+8. Characteristics of a high-level language?
+	Looks like English, easy to read, relatively easy to understand
+	
+	
+9. How does an object class encapsulate data?
+	Has fields that store values and are either kept private, or public methods are accessible and control them to prevent invalid data
+	
+10. Mutator methods
+	Another word for setter, may change the value of the field (should be called set)
+	
+11. Purpose of constructors/naming rules.
+	Create an object and define objects and they have the same name as the class
+
+12. Accessor methods/naming rules
+	Called getters and get a field value and has read access. (should be named get)
+	
+	
+Code: Mutator
+
+13. Consider the following class
+
+public class Classroom{
+private int maxOccupancy;
+private String number;
+
+	//overlooked constructors/naming
+	
+	//accessors (get methods)
+	
+	//mutators (set methods)
+	public void setNumber(String number){
+	this.number = number;
+	}
+	
+	public void setMaxOccupancy(int max){
+	if (max >= 25 && max <= 600)
+		this.maxOccupancy = max;
+	else
+		this.maxOccupancy = 25;
+		
+	}
+	
+	//other methods
+}
+Code the two mutators. Value of maxOccupancy must be between 25 and 600 included. If parameter is out of range, set maxOccupancy to 25. 
+Use conditional statement to validate. No constraint on number.	
+
+
+
+14.
+
+public class CashBack{
+private double percent;
+private String category;
+
+	//overlooked constructors/naming
+	
+	//accessors (get methods)
+	
+	//mutators (set methods)
+	public void setPercent(double percent){
+	if (percent >= .02 && percent <= .15)
+		this.percent = percent;
+	else
+		this.percent = .02;
+	}
+	
+	public void setCategory(String category){
+		this.category = category;
+	}
+		
+	
+	//other methods
+}
+
+Code two mutators. Value of percent is between 2% and 25%.
+
+
+15. public class CashBack{
+private int number;
+private String building;
+
+	//overlooked constructors/naming
+	
+	//accessors (get methods)
+	
+	//mutators (set methods)
+	public void setBuilding (String building){
+	this.building = building;
+	}
+	
+	public void setNumber (int number){
+	if (number >= 100 && number <= 499)
+		this.number = number;
+	}
+	else
+		this.number = 100;
+	//other methods
+}
+
+Code 2 mutators. Value must be between 100 to 499. Else, set number to 100.
+
+
+
+16.
+
+public class Radio{
+private double frequency;
+private String name;
+
+	//overlooked constructors/naming
+	
+	//accessors (get methods)
+	
+	//mutators (set methods)
+	public void setName(string Name){
+		this.name = name;
+	}
+	
+	public void setFrequency(double frequency){
+		if (frequency >= 80 && frequency <= 110)
+			this.frequency = frequency
+	}
+	else
+		this.frequency = 100;
+	
+	//other methods
+}
+
+
+//Code: toString()
+
+17.
+
+public class Membership{
+private double price;
+private String level;
+
+	//overlooked constructors/naming
+	
+	//accessors (get methods)
+	
+	//mutators (set methods)
+	
+	
+	//other methods
+	@Override
+	public string toString(){
+		NumberFormat currencyFormat =  NumberFormat.getCurrencyInstance();
+		return "Membership: Level: "+level+ " Price: " +currencyFormat.format(price);
+	}
+}
+
+18.
+
+public class Student{
+private double gpa;
+private String sid;
+
+	//overlooked constructors/naming
+	
+	//accessors (get methods)
+	
+	//mutators (set methods)
+	
+	
+	//other methods
+	@Override
+	public string toString(){
+		DecimalFormat decimalFormat =  new decimalFormat("0.0");
+		return "Student: sid: "+sid+ " Price: " +decimalFormat.format(gpa);
+	}
+}
+
+19.
+
+public class Radio{
+private double frequency;
+private String name;
+
+	//overlooked constructors/naming
+	
+	//accessors (get methods)
+	
+	//mutators (set methods)
+	public void setName(string Name){
+		this.name = name;
+	}
+	
+	public void setFrequency(double frequency){
+		if (frequency >= 80 && frequency <= 110)
+			this.frequency = frequency
+	}
+	else
+		this.frequency = 100;
+	
+	//other methods
+	public string toString(){
+		DecimalFormat decimalFormat = new decimalFormat ("0.0");
+		return "Radio: Name: "+name+" Frequency: "+decimalFormat.format(frequency);
+	}
+}
+
+
+Code: Static
+
+20.
+
+public class Membership{
+	private double price;
+	private String level;
+	private static int numMemberships = 0;
+	
+	//constructors
+	public Membership(){
+		setPrice(0.0);
+		setLevel("");
+		numMemberships++;
+	}
+	
+	public Membership (double p, String 1){
+		setPrice(p);
+		setLevel(l);
+		numMemberships++;
+	}
+	//accessors 
+	public static int getNumMemberships(){
+		return numMemberships;
+	}
+	
+	//mutators
+	
+	//other methods
+	
+}
+
+
+21.
+
+public class Classroom{
+	private int maxOccupancy;
+	private String number;
+	private static int numClassrooms = 0;
+	
+	//constructors
+	public Classroom(){
+		setMaxOccupancy(0);
+		setNumber("");
+		numClassrooms++
+	}
+	
+	public Classroom (int m, String n){
+		setMaxOccupancy(m);
+		setNumber(n);
+		numClassrooms++;
+	}
+	//accessors 
+	public static int getNumClassrooms(){
+		return numClassromos;
+	}
+	
+	//mutators
+	
+	//other methods
+	
+}
+
+
+//Code: Client Class
+
+22.
+
+public class Classroom{
+	private int maxOccupancy;
+	private String number;
+	private static int numClassrooms = 0;
+	
+	//constructors
+	public Classroom(){
+		setMaxOccupancy(0);
+		setNumber("");
+		numClassrooms++
+	}
+	
+	public Classroom (int m, String n){
+		setMaxOccupancy(m);
+		setNumber(n);
+		numClassrooms++;
+	}
+	//accessors 
+	public static int getNumClassrooms(){
+		return numClassromos;
+	}
+	
+	//mutators
+	
+	//other methods
+	public static void main(String[] args){
+		Radio radio1 = new Radio();
+		Radio radio2 = new Radio(3.4, "bob");
+		radio1.setFrequency(95.8);
+		radio1.setName("Memelord 420");
+		if (radio1.equals(radio2))
+			System.out.println("They are equal.");
+	}
+}
+
+23.
+
+	public static void main(String[] args){
+		Office office1 = new Office();
+		Office office2 = new Office(110, "COB");
+		office1.setNumber(207);
+		office1.setBuilding("Pirtle");
+		if (office1.equals(office2))
+			Systemout.prineln("They are equal.");
+	}
+	
+	
+Evaluation: Repetition
+
+24.
+	Output of the following lines of code:
+	
+	int x = 7;
+	
+	while (x > 1){
+		System.out.println(x);
+		
+		x = (x%2==0)? x-2; x-3
+	}
+
+	7, 4, 2, 0
+	
+25.
+
+	int x=7;
+	
+	do{
+		System.out.println(x);
+		
+		x = (x%2==0) x=1; x-3;
+	}while (x>1)
+	
+	7, 4, 3, 0;
+	
+
+Nested Else
+
+26.
+
+if (a > 0)
+	if (b < 0)
+		x = x + 5;
+	else
+		if (a > 5)
+			x=x+4;
+		else
+			x=x+3
+			
+else
+	x = x + 2
+	
+a = 1 , b = -1;
+
+27. x = 0, a = 0, b = -5
+
+x = 5
+
+
+Random
+
+27. Write Java statements to instansiate a RNG object and generate a random int between 100 and 250 inclusive (add and subtract 250 and 100 and add 1)
+
+Random rand = new Random();
+rand.nextInt(151) + 100;
+
+28. Generate a random int between -30 and 15 inclusive
+
+Random rand = new Random();
+rand.nextInt(46) - 30;
+
+29. Generate a random int between -5 and 20
+
+Random rand = new Random();
+rand.nextInt(26)-5;
+
+Switch
+
+30. String variable namedd email contains the email of a person in this format: username@serviceProvider.extension
+Output number of characters in this email address and the extension of the email.
+
+System.out.println(email.length());
+System.out.println(email.substring(email.indexOf('.')+1));
+
+
+Math
+
+31. Write java statement to calc the value of this formula.
+
+(1/2)pi - sqrt z/x^n
+
+double result = ((double)1/2)Math.pi - Math.sqrt(z/Math.pow(x,n));
+
+
+Switch statements
+
